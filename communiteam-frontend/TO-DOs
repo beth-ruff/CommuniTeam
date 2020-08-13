@@ -1,0 +1,9 @@
+Next:
+
+1. set up child
+    - eventcontainer
+    - eventcomponent
+    - addevent form
+    - deleteevent button
+
+2. make categories clickable - nested routes
