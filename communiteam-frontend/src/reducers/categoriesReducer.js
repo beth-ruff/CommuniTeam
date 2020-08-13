@@ -36,7 +36,7 @@ export default (state = { categories: [], loading: false }, action) => {
         case 'CATEGORY_DELETED':
             return {
                 ...state,
-                categories: [...state.categories.filter(category => `${category.id}` !== action.id)],
+                categories: [...state.categories.filter(category => `${category.id}` !== action.payload)],
                 loading: false 
             }
 
