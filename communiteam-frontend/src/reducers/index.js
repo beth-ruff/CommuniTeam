@@ -7,3 +7,5 @@ const rootReducer = combineReducers({
     categoriesReducer,
     eventsReducer
 })
+
+export default rootReducer;
