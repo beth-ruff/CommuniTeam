@@ -5,6 +5,7 @@ export const getCategories = () => {
         .then(resp => resp.json())
         .then(categories => dispatch({type: 'CATEGORIES_LOADED', payload: categories}))
     }
+
 }
 
 export const addCategory = (category) => {
