@@ -7,7 +7,7 @@ import rootReducer from './reducers/index';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-// import EventsContainer from './containers/EventsContainer';
+import Event from './Event';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -20,7 +20,7 @@ ReactDOM.render(
     <Router>
       <NavBar />
       <Route exact path="/categories" component={App} /> 
-      {/* <Route exact path="/events" component={EventsContainer} /> */}
+      <Route exact path="/events" component={Event} />
     </Router>
   </Provider>
   </React.StrictMode>,
