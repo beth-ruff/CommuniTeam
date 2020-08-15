@@ -1,9 +1,9 @@
 Next:
 
 1. set up child
-    - eventcontainer
-    - eventcomponent
-    - addevent form
-    - deleteevent button
+    - event index page DONE X
+    - category show page 
+    - add event form - should this exist on category show page? or on event index page?
+    - delete event button X
 
-2. make categories clickable - nested routes
+2. make categories clickable - nested routes DONE X

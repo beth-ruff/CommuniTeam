@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getEvents, deleteEvent } from '../actions/events';
-import EventCard from '../components/EventIndex';
+import EventCard from '../components/EventCard';
 
 class EventsContainer extends Component  {
 
-    componentDidMount(){
-        this.props.getEvents()
-    }
+    // componentDidMount(){
+    //     this.props.getEvents()
+    // }
       
         handleDelete = e => {
           this.props.deleteEvent(e.target.id)
@@ -29,6 +29,7 @@ class EventsContainer extends Component  {
       }
       
       const mapStateToProps = state => {
+          debugger
         return {
           events: state.eventsReducer.events,
           loading: state.eventsReducer.loading

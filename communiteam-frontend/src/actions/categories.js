@@ -35,3 +35,12 @@ export const deleteCategory = (id) => {
         .then(() => dispatch({type: 'CATEGORY_DELETED', payload: id}))
     }
 }
+
+export const showCategory = (id) => {
+    return (dispatch) => {
+        dispatch({type: 'LOADING_CATEGORY'})
+        return fetch(`/categories/${id}`)
+        .then(resp => resp.json())
+        .then(category => dispatch({type: 'SHOW_CATEGORY', payload: category}))
+    }
+}

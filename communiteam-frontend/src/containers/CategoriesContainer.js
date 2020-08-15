@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCategories, deleteCategory } from '../actions/categories';
+// import { getEvents } from '../actions/events';
 import CategoryCard from '../components/CategoryCard';
+
 
 class CategoriesContainer extends Component {
   componentDidMount(){
     this.props.getCategories()
+
   }
 
   handleDelete = event => {
@@ -19,7 +22,7 @@ class CategoriesContainer extends Component {
         <>
             <hr />
                 <div className="container">
-                    {categories}
+                {this.props.categories.loadingCategories ? <h5>Loading......</h5> : categories}
                 </div>
             <hr />
         </>
@@ -30,7 +33,7 @@ class CategoriesContainer extends Component {
 const mapStateToProps = state => {
   return {
     categories: state.categoriesReducer.categories,
-    loading: state.categoriesReducer.loading,
+    loadingCategories: state.categoriesReducer.loading,
   }
 }
 

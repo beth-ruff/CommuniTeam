@@ -1,4 +1,4 @@
-export default (state = { categories: [], loading: false }, action) => {
+export default (state = { categories: [], category: [], loading: false }, action) => {
     switch (action.type) {
 
         case 'LOADING_CATEGORIES':
@@ -38,6 +38,19 @@ export default (state = { categories: [], loading: false }, action) => {
                 ...state,
                 categories: [...state.categories.filter(category => `${category.id}` !== action.payload)],
                 loading: false 
+            }
+
+        case 'LOADING_CATEGORY':
+            return {
+                ...state,
+                loading: true 
+        }
+        
+        case 'SHOW_CATEGORY':
+            return {
+                ...state, 
+                category: action.payload, 
+                loading: false
             }
 
         default:
