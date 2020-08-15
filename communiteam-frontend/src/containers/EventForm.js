@@ -12,12 +12,8 @@ class EventForm extends Component {
     }
 
     handleChange = event => {
-        console.log(event.target.value)
         this.setState({
-            name: event.target.value,
-            date: event.target.value,
-            time: event.target.value,
-            description: event.target.value
+            [event.target.name]: event.target.value 
         })
     }
 
@@ -43,10 +39,10 @@ class EventForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.name} onChange={this.handleChange}></input><br></br><br></br>
-                <input type="date" value={this.state.date} onChange={this.handleChange}></input><br></br><br></br>
-                <input type="time" value={this.state.time} onChange={this.handleChange}></input><br></br><br></br>
-                <input type="text" value={this.state.description} onChange={this.handleChange}></input><br></br><br></br>
+                Event name: <input type="text" name="name" value={this.state.name} onChange={this.handleChange}></input><br></br><br></br>
+                Date: <input type="date" name="date" value={this.state.date} onChange={this.handleChange}></input><br></br><br></br>
+                Time: <input type="time" name="time" value={this.state.time} onChange={this.handleChange}></input><br></br><br></br>
+                Description: <input type="text" name="description" value={this.state.description} onChange={this.handleChange}></input><br></br><br></br>
                 <input type="submit" />
             </form>
             </div>
