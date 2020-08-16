@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CategoriesContainer from './containers/CategoriesContainer';
-import CategoryForm from './containers/CategoryForm';
+// import CategoryFormContainer from './containers/CategoryFormContainer';
 import './App.css';
 
 class App extends Component {
@@ -9,8 +9,7 @@ class App extends Component {
     return (
       <>
         <div className="App">
-          <h4>Add Category</h4>
-          <CategoryForm />
+          {/* <CategoryFormContainer /> */}
           <h3>Community Event Categories</h3>
           <CategoriesContainer />
         </div>

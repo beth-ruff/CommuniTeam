@@ -12,6 +12,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import CategoryShow from './containers/CategoryShow';
+import Home from './components/Home';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
@@ -20,6 +21,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <NavBar />
+      <Route exact path="/" component={Home} />
       <Route exact path="/categories" component={App} /> 
       <Route exact path="/categories/:id/events" component={CategoryShow} />
       <Route exact path="/events/new" component={EventForm}/>
