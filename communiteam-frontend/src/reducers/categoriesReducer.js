@@ -56,4 +56,6 @@ export default (state = { categories: [], category: [], loading: false }, action
         default:
             return state
     }
+
+    
 }

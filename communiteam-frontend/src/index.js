@@ -7,7 +7,7 @@ import rootReducer from './reducers/index';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import EventCard from './components/EventCard';
+import EventForm from './containers/EventForm';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -21,8 +21,8 @@ ReactDOM.render(
     <Router>
       <NavBar />
       <Route exact path="/categories" component={App} /> 
-      <Route exact path="/events" component={EventCard} />
-      <Route exact path="/categories/:id" component={CategoryShow} />
+      <Route exact path="/categories/:id/events" component={CategoryShow} />
+      <Route exact path="/events/new" component={EventForm}/>
     </Router>
   </Provider>
   </React.StrictMode>,

@@ -14,10 +14,11 @@ export const addEvent = (event) => {
             method: 'POST',
             body: JSON.stringify(event),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             }
         })
         .then(resp => resp.json())
+        .then(console.log(event))
         .then(event => dispatch({type: 'EVENT_ADDED', payload: event}))
     }
 }

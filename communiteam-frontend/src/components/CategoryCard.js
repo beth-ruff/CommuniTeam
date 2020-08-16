@@ -6,7 +6,7 @@ const CategoryCard  = (props) =>
 
     <div>
     
-        <Link key={props.category.id} to={`/categories/${props.category.id}`}>
+        <Link key={props.category.id} to={`/categories/${props.category.id}/events`}>
         <div className="category-card">
                 <h3>{props.category.name}</h3>
                 <button onClick={props.deleteCategory} id={props.category.id}>X</button>

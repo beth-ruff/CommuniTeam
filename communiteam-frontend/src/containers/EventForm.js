@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addEvent } from '../actions/events';
+import { getCategories } from '../actions/categories';
 
 class EventForm extends Component {
     state = {
@@ -8,7 +9,10 @@ class EventForm extends Component {
         date: '',
         time: '',
         description: '',
-        loading: false
+        category_id: ''
+    }
+    componentDidMount(){
+        this.props.getCategories();
     }
 
     handleChange = event => {
@@ -19,20 +23,16 @@ class EventForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const event = {
-            name: this.state.name, 
-            date: this.state.date, 
-            time: this.state.time, 
-            description: this.state.description
-        }
-        this.props.addEvent(event)
+        this.props.addEvent(this.state)
+        const category_id = this.state.category_id
         this.setState({
             name: '',
             date: '',
             time: '',
             description: '',
-            loading: false
+            category_id: ''
         })
+        this.props.history.push(`/categories/${category_id}/events`)
     }
 
     render() {
@@ -43,6 +43,10 @@ class EventForm extends Component {
                 Date: <input type="date" name="date" value={this.state.date} onChange={this.handleChange}></input><br></br><br></br>
                 Time: <input type="time" name="time" value={this.state.time} onChange={this.handleChange}></input><br></br><br></br>
                 Description: <input type="text" name="description" value={this.state.description} onChange={this.handleChange}></input><br></br><br></br>
+                Select an Event Category: <select name='category_id' value={this.state.category_id} onChange={this.handleChange}>
+                <option disabled selected value> -- select an option -- </option>
+                {this.props.categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+              </select>
                 <input type="submit" />
             </form>
             </div>
@@ -50,4 +54,9 @@ class EventForm extends Component {
     }
 }
 
-export default connect(null, { addEvent })(EventForm);
+const mapStateToProps = (state) => {
+    return {
+        categories: state.categoriesReducer.categories 
+    }
+}
+export default connect(mapStateToProps, { addEvent, getCategories })(EventForm);

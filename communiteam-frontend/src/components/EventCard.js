@@ -3,7 +3,6 @@ import React from 'react';
 const EventCard = (props) =>
     
     <>
-        <h1>{props.category.name}</h1>
         <div className="event-card">
         <h4>{props.event.name}</h4>
         <p>Date: {props.event.date}</p>
