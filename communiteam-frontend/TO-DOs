@@ -2,8 +2,8 @@ Next:
 
 1. set up child
     - event index page DONE X
-    - category show page 
-    - add event form - should this exist on category show page? or on event index page?
+    - category show page DONE X
+    - add event form DONE X
     - delete event button X
 
 2. make categories clickable - nested routes DONE X

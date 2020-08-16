@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCategories, deleteCategory } from '../actions/categories';
-// import { getEvents } from '../actions/events';
 import CategoryCard from '../components/CategoryCard';
 
 
