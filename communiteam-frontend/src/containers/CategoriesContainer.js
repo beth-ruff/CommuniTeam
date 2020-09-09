@@ -22,22 +22,20 @@ class CategoriesContainer extends Component {
 
   handleClick = event => {
     console.log(event.target.value)
-    let newState = !this.state.showForm
     this.setState({
-        showForm: newState
+        showForm: true
     });
 }
 
   handleChange = event => {
       console.log(event.target.value)
       this.setState({
-          name: event.target.value
+          [event.target.name]: event.target.value
       })
   }
 
   handleSubmit = event => {
       event.preventDefault();
-      // const category = {name: this.state.name}
       this.props.addCategory(this.state)
       this.setState({
           name: '',
@@ -47,7 +45,6 @@ class CategoriesContainer extends Component {
 
   render() {
         const categories = this.props.categories.map(category => <CategoryCard key={category.id} category={category} getCategories={this.props.getCategories} deleteCategory={this.handleDelete} />)
-        // const {showForm} = this.state
     return (
         <>
             <hr />
@@ -58,16 +55,25 @@ class CategoriesContainer extends Component {
             <div className="category-form">
                 {this.state.showForm === false ? <button onClick={this.handleClick}>Add a Category</button> : <CategoryForm handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>}
             </div>
+            
         </>
     );
     }
 }
 
 const mapStateToProps = state => {
+
   return {
     categories: state.categoriesReducer.categories,
     loadingCategories: state.categoriesReducer.loading,
   }
 }
 
+// const mDTP = (dispatch) => {
+//   return {
+//     dispatchGetCategories: () => dispatch(getCategories())
+//   }
+// }
+
+// Connect is the Consumer in the React context
 export default connect(mapStateToProps, { getCategories, deleteCategory, addCategory })(CategoriesContainer);

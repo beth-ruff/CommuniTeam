@@ -7,3 +7,10 @@ Next:
     - delete event button X
 
 2. make categories clickable - nested routes DONE X
+
+
+
+Filter:
+1. create form field
+2. create button
+3. create onchange filter function

@@ -23,8 +23,6 @@ class CategoryShow extends React.Component {
     return (
         <>
             <hr />
-                {/* <h4>Add Event</h4> */}
-                {/* < EventForm category={this.props.category}/> */}
                 <div className="category-show">
                 <h1>{this.props.category.name}</h1>
                     {this.props.category.loadingCategory ? <h5>Loading......</h5> : events}
