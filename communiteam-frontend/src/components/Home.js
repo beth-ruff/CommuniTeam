@@ -1,11 +1,17 @@
 import React from 'react';
+import { Jumbotron, Container, Button } from 'react-bootstrap';
 
 const Home = () => {
     return (
-        <div className="home-container">
+        <Jumbotron fluid>
+        <Container>
             <h4>Welcome to Communiteam, a web application by the people, for the people. Get involved in the Oakland community today by staying up to date with events happening around the city.</h4><br></br>
             <p>Click on the "Categories" tab above to browse events by category. Please add events or categories as you see fit!</p>
-        </div>
+            <p>
+                <Button variant="primary">Learn more</Button>
+            </p>
+        </Container>
+        </Jumbotron>
     )
 }
 

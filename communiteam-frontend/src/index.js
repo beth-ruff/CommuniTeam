@@ -9,7 +9,7 @@ import rootReducer from './reducers/index';
 import thunk from 'redux-thunk';
 //Thunk is just for organization
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import NaviBar from './components/NaviBar';
 import EventForm from './containers/EventForm';
 import './index.css';
 import App from './App';
@@ -23,8 +23,14 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
     <Router>
-      <NavBar />
+      <NaviBar />
       <Route exact path="/" component={Home} />
       <Route exact path="/categories" component={App} /> 
       <Route exact path="/categories/:id/events" component={CategoryShow} />
