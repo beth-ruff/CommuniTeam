@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { getCategories, deleteCategory, addCategory } from '../actions/categories';
 import CategoryCard from '../components/CategoryCard';
 import CategoryForm from '../components/CategoryForm';
+import { CardDeck } from 'react-bootstrap';
+import '../CategoryCard.css';
 
 
 class CategoriesContainer extends Component {
@@ -48,9 +50,11 @@ class CategoriesContainer extends Component {
     return (
         <>
             <hr />
-                <div className="container">
+            <container>
+              <CardDeck className="card-deck">
                 {this.props.categories.loadingCategories ? <h5>Loading......</h5> : categories}
-                </div>
+              </CardDeck >
+            </container>
             <hr />
             <div className="category-form">
                 {this.state.showForm === false ? <button onClick={this.handleClick}>Add a Category</button> : <CategoryForm handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>}

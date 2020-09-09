@@ -6,9 +6,9 @@ const Home = () => {
         <Jumbotron fluid>
         <Container>
             <h4>Welcome to Communiteam, a web application by the people, for the people. Get involved in the Oakland community today by staying up to date with events happening around the city.</h4><br></br>
-            <p>Click on the "Categories" tab above to browse events by category. Please add events or categories as you see fit!</p>
+            <p>Click on the button below to browse events by category. Please add events or categories as you see fit!</p>
             <p>
-                <Button variant="primary">Learn more</Button>
+                <Button href="/categories" variant="primary">Browse by Category</Button>
             </p>
         </Container>
         </Jumbotron>
