@@ -24,7 +24,7 @@ class CategoryShow extends React.Component {
         <>
             <hr />
                 <div className="category-show">
-                <h1>{this.props.category.name}</h1>
+                    <div className="header text-center"><h3>{this.props.category.name}</h3></div>
                     {this.props.category.loadingCategory ? <h5>Loading......</h5> : events}
                 </div>
             <hr />

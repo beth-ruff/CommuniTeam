@@ -10,6 +10,8 @@ import '../CategoryCard.css';
 class CategoriesContainer extends Component {
   state = {
     name: '',
+    description: '',
+    image: null,
     showForm: false
   }
   
@@ -35,12 +37,21 @@ class CategoriesContainer extends Component {
           [event.target.name]: event.target.value
       })
   }
+  
+  fileHandler = event => {
+    console.log(event.target.files[0])
+    this.setState({
+      image: event.target.files[0]
+    })
+  }
 
   handleSubmit = event => {
       event.preventDefault();
       this.props.addCategory(this.state)
       this.setState({
           name: '',
+          description: '',
+          image: null,
           showForm: false
       })
   }
@@ -57,7 +68,7 @@ class CategoriesContainer extends Component {
             </container>
             <hr />
             <div className="category-form">
-                {this.state.showForm === false ? <button onClick={this.handleClick}>Add a Category</button> : <CategoryForm handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>}
+                {this.state.showForm === false ? <button onClick={this.handleClick}>Add a Category</button> : <CategoryForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} fileHandler={this.fileHandler}/>}
             </div>
             
         </>

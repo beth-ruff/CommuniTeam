@@ -15,7 +15,6 @@ class App extends Component {
     return (
       <>
         <div className="App">
-          {/* <CategoryFormContainer /> */}
           <h3>Community Event Categories</h3>
           <CategoriesContainer />
         </div>

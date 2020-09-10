@@ -19,7 +19,6 @@ export const addCategory = (category) => {
             }
         })
         .then(resp => resp.json())
-        .then(console.log(category))
         .then(category => dispatch({type: 'CATEGORY_ADDED', payload: category}))
     }
 }
