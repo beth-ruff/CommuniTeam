@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addEvent } from '../actions/events';
 import { getCategories } from '../actions/categories';
+import { Form } from 'react-bootstrap';
+import '../CategoryCard.css';
 
 class EventForm extends Component {
     state = {
@@ -25,6 +27,7 @@ class EventForm extends Component {
         e.preventDefault();
         this.props.addEvent(this.state)
         const category_id = this.state.category_id
+        console.log(category_id)
         this.setState({
             name: '',
             date: '',
@@ -50,6 +53,32 @@ class EventForm extends Component {
                 <input type="submit" />
             </form>
             </div>
+
+/* <Form className="event-form" onSubmit={this.handleSubmit}>
+<Form.Group controlId="exampleForm.ControlInput1">
+  <Form.Label>Event Name</Form.Label>
+  <Form.Control type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+</Form.Group>
+<Form.Group controlId="exampleForm.ControlInput2">
+  <Form.Label>Date</Form.Label>
+  <Form.Control type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+</Form.Group>
+<Form.Group controlId="exampleForm.ControlInput3">
+  <Form.Label>Time</Form.Label>
+  <Form.Control type="time" name="time" value={this.state.time} onChange={this.handleChange} />
+</Form.Group>
+<Form.Group controlId="exampleForm.ControlInput4">
+  <Form.Label>Description</Form.Label>
+  <Form.Control as="textarea" rows="3" name="description" value={this.state.description} onChange={this.handleChange} />
+</Form.Group>
+<Form.Group controlId="exampleForm.ControlSelect5">
+  <Form.Label>Select Event Category</Form.Label>
+  <Form.Control as="select">
+    {this.props.categories.map((category) => <option value={category.id}>{category.name}</option>)}
+  </Form.Control>
+</Form.Group>
+    <input type="submit" />
+</Form> */
         )
     }
 }
