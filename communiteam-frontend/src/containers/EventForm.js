@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addEvent } from '../actions/events';
 import { getCategories } from '../actions/categories';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import '../CategoryCard.css';
 
 class EventForm extends Component {
@@ -40,21 +40,21 @@ class EventForm extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                Event name: <input type="text" name="name" value={this.state.name} onChange={this.handleChange}></input><br></br><br></br>
-                Date: <input type="date" name="date" value={this.state.date} onChange={this.handleChange}></input><br></br><br></br>
-                Time: <input type="time" name="time" value={this.state.time} onChange={this.handleChange}></input><br></br><br></br>
-                Description: <input type="text" name="description" value={this.state.description} onChange={this.handleChange}></input><br></br><br></br>
-                Select an Event Category: <select name="category_id" value={this.state.category_id} onChange={this.handleChange}>
-                <option> -- select an option -- </option>
-                {this.props.categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
-              </select>
-                <input type="submit" />
-            </form>
-            </div>
-
-/* <Form className="event-form" onSubmit={this.handleSubmit}>
+            // <div>
+            //     <form onSubmit={this.handleSubmit}>
+            //     Event name: <input type="text" name="name" value={this.state.name} onChange={this.handleChange}></input><br></br><br></br>
+            //     Date: <input type="date" name="date" value={this.state.date} onChange={this.handleChange}></input><br></br><br></br>
+            //     Time: <input type="time" name="time" value={this.state.time} onChange={this.handleChange}></input><br></br><br></br>
+            //     Description: <input type="text" name="description" value={this.state.description} onChange={this.handleChange}></input><br></br><br></br>
+            //     Select an Event Category: <select name="category_id" value={this.state.category_id} onChange={this.handleChange}>
+            //     <option> -- select an option -- </option>
+            //     {this.props.categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+            //   </select>
+            //     <input type="submit" />
+            // </form>
+            // </div>
+<div>
+<Form className="event-form" onSubmit={this.handleSubmit}>
 <Form.Group controlId="exampleForm.ControlInput1">
   <Form.Label>Event Name</Form.Label>
   <Form.Control type="text" name="name" value={this.state.name} onChange={this.handleChange} />
@@ -71,14 +71,17 @@ class EventForm extends Component {
   <Form.Label>Description</Form.Label>
   <Form.Control as="textarea" rows="3" name="description" value={this.state.description} onChange={this.handleChange} />
 </Form.Group>
-<Form.Group controlId="exampleForm.ControlSelect5">
+<Form.Group controlId="exampleForm.ControlSelect1">
   <Form.Label>Select Event Category</Form.Label>
-  <Form.Control as="select">
-    {this.props.categories.map((category) => <option value={category.id}>{category.name}</option>)}
+  <Form.Control as="select" name="category_id" value={this.state.category_id} onChange={this.handleChange}>
+    {this.props.categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
   </Form.Control>
 </Form.Group>
-    <input type="submit" />
-</Form> */
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form>
+</div>
         )
     }
 }
