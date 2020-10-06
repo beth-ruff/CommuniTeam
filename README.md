@@ -1,4 +1,4 @@
-# YogaOnRails
+# CommuniTeam
 
 Welcome to CommuniTeam, a React Redux web application for Oakland community members to view, post, and promote upcoming community events.  
 
